@@ -1,0 +1,31 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+   
+EXPOSE 4000
+
+CMD ["npm","start"]
+
+======================
+
+FROM node:19-alpine
+
+ENV PORT 4000
+
+WORKDIR /app
+
+COPY . .
+
+#RUN yarn install --production
+RUN npm install
+
+#RUN yarn build
+#RUN npx prettier --write .
+#RUN npm run build
+
+EXPOSE 4000
+CMD [ "npm", "start" ]
